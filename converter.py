@@ -50,7 +50,7 @@ for location in locations:
     # Convert DBF
     print("Converting %s..." % location),
 
-    csv_location = os.path.join(converted_dir, filename[:-4] + '.txt')
+    csv_location = os.path.join(converted_dir, filename[:-4] + '.csv')
 
     # Convert with Microsoft Office Excel
     # Open Office unoconv can be substituted
