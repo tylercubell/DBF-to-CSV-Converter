@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 """ 
 
 Recursively converts all DBF files in a directory to CSV.
@@ -15,7 +13,7 @@ convert.py "C:\dbf_files"
 
 """
 
-import sys, os, fnmatch, csv, win32com.client as win32
+import sys, os, fnmatch, win32com.client as win32
 
 if not len(sys.argv) > 1:
     print 'Error: You must specify a directory'
@@ -51,6 +49,10 @@ for location in locations:
     print("Converting %s..." % location),
 
     csv_location = os.path.join(converted_dir, filename[:-4] + '.csv')
+
+    if os.path.isfile(csv_location):
+        print ' Already Converted!'
+        continue
 
     # Convert with Microsoft Office Excel
     # Open Office unoconv can be substituted
