@@ -1,6 +1,7 @@
 """ 
 
 Changes delimiter: ^ -> ,
+For CSVs ending in .txt
 
 """
 
@@ -16,7 +17,7 @@ if not os.path.isdir(directory):
     print 'Error: Not a valid directory'
     sys.exit(0)
 
-# Create list of all DBF file locations
+# Create list of all TXT file locations
 locations = []
 for root, dirnames, filenames in os.walk(directory):
     for filename in fnmatch.filter(filenames, '*.txt'):
@@ -36,7 +37,7 @@ for location in locations:
 
     filename = os.path.basename(location)
 
-    # Convert DBF
+    # Convert TXT
     print("Converting %s..." % location),
 
     csv_location = os.path.join(converted_dir, filename[:-4] + '.csv')
